@@ -23,7 +23,7 @@ $ sudo reboot
 $ sudo apt-get install ansible
 ```
 
-Configure `localhost ansible_connection=local` in `localhost ansible_connection=local`
+Configure `localhost ansible_connection=local` in `/etc/ansible/hosts`
 
 ```bash
 $ wget https://raw.githubusercontent.com/guilhermemaba/dotfiles/master/ubuntu.yaml
