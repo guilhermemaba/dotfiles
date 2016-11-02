@@ -5,6 +5,7 @@
   tasks:
   - name: install all packages 
     when: ansible_os_family == "Debian"
+    become: true
     apt: name={{ item }} update_cache=yes state=latest
     with_items:
     - aptitude
@@ -41,35 +42,47 @@
   
   - name: Add apt keys (spotify)
     apt_key: keyserver=keyserver.ubuntu.com id={{ item }}
+    become: true
     with_items:
       - 94558F59
       - D2C19886
 
   - name: Add repository (spotify)
+    become: true
     apt_repository: repo='deb http://repository.spotify.com stable non-free'
 
   - name: Install spotify
+    become: true
     apt: name=spotify-client update_cache=yes state=latest
 
   - name: install sass and compass
+    become: true
     shell: "gem install --no-user-install -N -E sass compass" 
   
   - name: create symbol links
+    become: true
     shell: "ln -sf /usr/bin/nodejs /usr/bin/node"
 
   - name: nodejs set prefix 
+    become: true
     shell: "npm config set prefix /usr/local"
 
   - name: install bower 
+    become: true
     shell: "npm install -g bower"
 
   - name: set zsh default shell
+    become: true
     shell: "chsh -s $(which zsh)"
 
-  - name: create projects path 
+  - name: create projects path
+    become: true
+    become_user: maba
     file: path=~/projects state=directory
 
   - name: cloning repos
+    become: true
+    become_user: maba
     git: repo=git@github.com:guilhermemaba/{{ item.repo }}.git
          dest={{ item.dest }}
          accept_hostkey=yes
