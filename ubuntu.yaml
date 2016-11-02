@@ -1,0 +1,71 @@
+- hosts: localhost
+  connection: local
+  vars:
+  - destination_repo: ~/projects
+  tasks:
+  - name: install all packages 
+    when: ansible_os_family == "Debian"
+    apt: name={{ item }} update_cache=yes state=latest
+    with_items:
+    - aptitude
+    - ssh
+    - wget
+    - postgresql-9.5
+    - mysql-server
+    - mysql-client
+    - mysql-workbench
+    - git
+    - git-core
+    - zsh
+    - fleet
+    - vlc
+    - chromium-browser
+    - ruby-dev 
+    - rubygems 
+    - vim
+    - vim-nox
+    - tmux 
+    - unzip 
+    - silversearcher-ag
+    - python-all-dev
+    - nodejs
+    - nodejs-dev 
+    - npm 
+    - libjpeg-dev 
+    - libxml2-dev
+    - libssl-dev
+    - libxslt1-dev
+    - libmysqlclient-dev
+    - libffi-dev
+    - gettext
+
+  - name: install sass and compass
+    shell: "gem install --no-user-install -N -E sass compass" 
+  
+  - name: create symbol links
+    shell: "ln -sf /usr/bin/nodejs /usr/bin/node"
+
+  - name: nodejs set prefix 
+    shell: "npm config set prefix /usr/local"
+
+  - name: install bower 
+    shell: "npm install -g bower"
+
+  - name: set zsh default shell
+    shell: "chsh -s $(which zsh)"
+
+  - name: create projects path 
+    file: path=~/projects state=directory
+
+  - name: cloning repos
+    git: repo=git@github.com:guilhermemaba/{{ item.repo }}.git
+         dest={{ item.dest }}
+         accept_hostkey=yes
+         force=yes
+         recursive=no
+         key_file=~/.ssh/id_rsa
+    with_items:
+      - dest: "{{ destination_repo }}/burndown_for_what"
+        repo: burndown_for_what
+      - dest: "{{ destination_repo }}/dotfiles"
+        repo: dotfiles
