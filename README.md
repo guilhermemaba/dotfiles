@@ -17,7 +17,7 @@ $ sudo update-grub
 $ sudo reboot
 ```
 
-### install and configure(local) ansible
+### Install and configure(local) ansible
 
 ```bash
 $ sudo apt-get install ansible
@@ -25,13 +25,10 @@ $ sudo apt-get install ansible
 
 Configure `localhost ansible_connection=local` in `/etc/ansible/hosts`
 
-```bash
-$ wget https://raw.githubusercontent.com/guilhermemaba/dotfiles/master/ubuntu.yaml
-```
-
 ### Run ansible-playbook
 
 ```bash
+$ wget https://raw.githubusercontent.com/guilhermemaba/dotfiles/master/ubuntu.yaml
 $ sudo ansible-playbook ubuntu.yaml
 ```
 
@@ -39,6 +36,12 @@ $ sudo ansible-playbook ubuntu.yaml
 ### TODO zsh-files
 ### TODO tmux-files
 ### TODO install and config docker
+
+```bash
+$ cd ~/projects/dotfiles/ 
+$ sudo ansible-playbook docker.yaml
+```
+
 ### TODO install and config virtualenvwrapper
 
 ### Tribute
