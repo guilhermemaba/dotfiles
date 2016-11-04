@@ -1,0 +1,24 @@
+- hosts: localhost
+  connection: local
+  tasks:
+  - copy: src=~/projects/dotfiles/.tmux.conf dest=~/.tmux.conf owner=maba mode=755
+  - copy: src=~/projects/dotfiles/.gitconfig dest=~/.gitconfig owner=maba mode=755
+  - copy: src=~/projects/dotfiles/.zshrc dest=~/.zshrc owner=maba mode=755
+  - copy: src=~/projects/dotfiles/.zsh dest=~/ owner=maba mode=755
+  - copy: src=~/projects/dotfiles/.vimrc dest=~/.vimrc owner=maba mode=755
+  - copy: src=~/projects/dotfiles/.vim dest=~/ owner=maba mode=755
+  - name: cloning vundle
+    become: true
+    become_user: maba
+    git: repo=git@github.com:VundleVim/{{ item.repo }}.git
+         dest={{ item.dest }}
+    with_items:
+      - dest: "~/.vim/bundle/Vundle.vim"
+        repo: Vundle.vim
+  - name: install vim plugins 
+    become_user: true
+    shell: "vim +PluginInstall +qall"    
+  - name: set zsh default shell
+    become_user: true
+    shell: "chsh -s $(which zsh)"
+

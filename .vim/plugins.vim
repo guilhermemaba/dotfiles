@@ -12,7 +12,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/vundle'
-
 Plugin 'bogado/file-line'
 Plugin 'chrisbra/csv.vim'
 Plugin 'django.vim'

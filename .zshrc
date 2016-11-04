@@ -21,3 +21,4 @@ require ~/.zsh/bindkey.sh
 export WORKON_HOME=/virtualenvs
 export PROJECT_HOME=/projects
 source $(which virtualenvwrapper.sh)
+[[ $TERM != "screen" ]] && exec tmux
