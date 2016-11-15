@@ -1,6 +1,10 @@
 - hosts: localhost
   connection: local
   tasks:
+  - name: install oh-my-zsh 
+    become: true
+    become_user: maba
+    shell: sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
   - copy: src=~/projects/dotfiles/.tmux.conf dest=~/.tmux.conf owner=maba mode=755
   - copy: src=~/projects/dotfiles/.gitconfig dest=~/.gitconfig owner=maba mode=755
   - copy: src=~/projects/dotfiles/.zshrc dest=~/.zshrc owner=maba mode=755

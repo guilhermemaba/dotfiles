@@ -20,4 +20,9 @@ require ~/.zsh/bindkey.sh
 
 export WORKON_HOME=~/virtualenvs
 export PROJECT_HOME=~/projects
+export ZSH=/home/maba/.oh-my-zsh
+ZSH_THEME="gallois"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 source $(which virtualenvwrapper.sh)
