@@ -18,7 +18,6 @@ load /usr/share/zsh/plugins/zsh-syntax-highlight/zsh-syntax-highlighting.zsh
 require ~/.zsh/completion.sh
 require ~/.zsh/bindkey.sh
 
-export WORKON_HOME=/virtualenvs
-export PROJECT_HOME=/projects
+export WORKON_HOME=~/virtualenvs
+export PROJECT_HOME=~/projects
 source $(which virtualenvwrapper.sh)
-[[ $TERM != "screen" ]] && exec tmux

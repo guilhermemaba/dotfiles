@@ -19,6 +19,8 @@
     become_user: true
     shell: "vim +PluginInstall +qall"    
   - name: set zsh default shell
-    become_user: true
-    shell: "chsh -s $(which zsh)"
-
+    user: name=maba shell=/usr/bin/zsh
+    become: true
+    become_user: maba
+  - pip: name=virtualenvwrapper
+    become: true

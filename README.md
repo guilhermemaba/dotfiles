@@ -32,23 +32,21 @@ $ wget https://raw.githubusercontent.com/guilhermemaba/dotfiles/master/ubuntu.ya
 $ sudo ansible-playbook ubuntu.yaml
 ```
 
-### Configure vim/zsh/tmux
+### Configure vim/zsh/tmux/virtualenvwrapper
 
 ```bash
 $ cd ~/projects/dotfiles/ 
 $ sudo ansible-playbook terminal.yaml
 ```
 
-### Install and config docker
+### Install and configure docker
 
 Unable to start Docker service in Ubuntu 16.04 [Problem Solved] (http://stackoverflow.com/questions/37227349/unable-to-start-docker-service-in-ubuntu-16-04/37640824#37640824)
 
 ```bash
 $ cd ~/projects/dotfiles/ 
 $ sudo ansible-playbook docker.yaml
-```
 
-### TODO install and config virtualenvwrapper
 
 ### Tribute
 

@@ -29,6 +29,7 @@
     - unzip 
     - silversearcher-ag
     - python-all-dev
+    - python-pip
     - nodejs
     - nodejs-dev 
     - npm 
