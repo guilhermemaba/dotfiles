@@ -41,12 +41,6 @@
       groups: docker
       append: yes
 
-  - name: add teamcity to docker group
-    user:
-      name: teamcity
-      groups: docker
-      append: yes
-
   - name: get docker compose
     get_url:
       url: https://github.com/docker/compose/releases/download/1.8.1/docker-compose-Linux-x86_64

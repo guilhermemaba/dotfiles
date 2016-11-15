@@ -39,7 +39,9 @@ $ cd ~/projects/dotfiles/
 $ sudo ansible-playbook terminal.yaml
 ```
 
-### (BUG) install and config docker
+### Install and config docker
+
+[Problem Solved] (http://stackoverflow.com/questions/37227349/unable-to-start-docker-service-in-ubuntu-16-04/37640824#37640824)
 
 ```bash
 $ cd ~/projects/dotfiles/ 
