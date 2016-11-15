@@ -46,7 +46,7 @@ Unable to start Docker service in Ubuntu 16.04 [Problem Solved] (http://stackove
 ```bash
 $ cd ~/projects/dotfiles/ 
 $ sudo ansible-playbook docker.yaml
-```
+
 
 ### Tribute
 
