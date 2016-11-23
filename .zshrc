@@ -21,6 +21,10 @@ require ~/.zsh/bindkey.sh
 export WORKON_HOME=~/virtualenvs
 export PROJECT_HOME=~/projects
 export ZSH=/home/maba/.oh-my-zsh
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/projects/go-projects
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 ZSH_THEME="gallois"
 plugins=(git)
 

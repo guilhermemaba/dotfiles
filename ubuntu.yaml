@@ -95,3 +95,17 @@
         repo: burndown_for_what
       - dest: "{{ destination_repo }}/dotfiles"
         repo: dotfiles
+
+  - name: get golang latest version
+    get_url:
+      url: https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz
+      dest: ~/Downloads
+      mode: 0755
+
+  - name: extract golang
+    become: true
+    shell: "tar -xvf ~/Downloads/go1.7.linux-amd64.tar.gz -C ~/Downloads"
+
+  - name: install golang
+    become: true
+    shell: "mv ~/Downloads/go /usr/local/go"
