@@ -25,6 +25,5 @@
   - name: set zsh default shell
     user: name=maba shell=/usr/bin/zsh
     become: true
-    become_user: maba
   - pip: name=virtualenvwrapper
     become: true

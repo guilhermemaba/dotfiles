@@ -11,8 +11,6 @@
     - aptitude
     - ssh
     - wget
-    - postgresql-9.5
-    - mysql-server
     - mysql-client
     - mysql-workbench
     - git
@@ -98,13 +96,13 @@
 
   - name: get golang latest version
     get_url:
-      url: https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz
+      url: https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
       dest: ~/Downloads
       mode: 0755
 
   - name: extract golang
     become: true
-    shell: "tar -xvf ~/Downloads/go1.7.linux-amd64.tar.gz -C ~/Downloads"
+    shell: "tar -xvf ~/Downloads/go1.8.linux-amd64.tar.gz -C ~/Downloads"
 
   - name: install golang
     become: true
